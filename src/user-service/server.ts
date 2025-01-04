@@ -1,10 +1,11 @@
-const express = require('express');
-const userRoutes =require('./userRoutes.js')
+import express from "express";
+import userRoutes from "./userRoutes.js";
 
 const app = express();
-
+const PORT = process.env.PORT || 3001;
 app.use(express.json());
-app.use('/user' , userRoutes)
+app.use("/users", userRoutes);
 
-const port = process.env.PORT || 3001;
-app.listen(port, console.log(`user Server is run on ${port}`))
+app.listen(PORT, () => {
+  console.log(`user ervice is run on port ${PORT}`);
+});
